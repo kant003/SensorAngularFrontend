@@ -1,12 +1,20 @@
-<p>Acceso al sistema</p>
-<form>
+<mat-card>
+    <mat-card-title>Acceso al sistema</mat-card-title>
+    <mat-card-content>
+    <form [formGroup]="form" (submit)="onSubmit(form.value)">
+        <p>
+            <mat-form-field>
+                <input name="email" formControlName="email" type="text" matInput placeholder="Email">
+            </mat-form-field>
+        </p>
 
-    <label for="user">User</label>
-    <input type="text" name="user">
-    <br/>
-    <label for="password">Password</label>
-    <input type="text" name="password">
-    <br/>
-    <input type="submit" name="Login">
+        <p>
+            <mat-form-field>
+                <input type="password"  name="password" formControlName="password" matInput placeholder="Password">
+            </mat-form-field>
+        </p>
 
-</form>
+        <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Login</button>
+    </form>
+</mat-card-content>
+</mat-card>

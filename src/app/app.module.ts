@@ -29,6 +29,7 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
     MatFormFieldModule,

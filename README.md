@@ -20,12 +20,14 @@ publica: 88.21.98.111:4200
     - PUT '/dato/:id'   // Modifica un dato existente
     - DELETE '/dato/:id'// Elimina un dato existente
 
+# Proyecto github
 
+  - git remote add origin https://github.com/kant003/SensorCebem.git
 
 # Historias de usuario
 
 - Crear el componente menu
-  - [ ] template (...)
+  - [ ] template (cora)
   - [ ] Logica de negocio
 - Crear el componente listado de datos guardados
   - [ ] template
@@ -40,10 +42,11 @@ publica: 88.21.98.111:4200
   - [ ] template (Miriam)
   - [ ] Logica de negocio
 - Crear el componente registro de un nuevo usuario
-  - [ ] template
+  - [ ] template(David)
   - [ ] Logica de negocio
 
 - [ ] Crear el servicio para listar todos los datos
 - [ ] Crear el servicio para listar el dato mas actual
 - [ ] Crear el servicio para añadir un nuevo dato
 
+- [ ] Crear el modelo de datos

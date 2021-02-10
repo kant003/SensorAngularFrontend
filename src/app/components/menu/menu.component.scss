@@ -10,12 +10,12 @@
   .contenedorHijo{
     background-color:LightSeaGreen;
     height: 50px;
-    width: 80% ;
-    margin-left: 5%;
+    width: 60% ;
+    margin-left: 1%;
     color:white;
     display: grid;
       /*Tendremos tres columnas*/
-      grid-template-columns:25% 25% 25% 25% ;
+      grid-template-columns:25% 25% 25% 25% 25%;
       /*Espacio entre columnas*/
 
   }
@@ -35,6 +35,12 @@
     grid-row: 1;
     grid-column: 4;
    }
+
+   .component5{
+    grid-row: 1;
+    grid-column: 5;
+   }
+
 
    .box{
     background-color:LightSeaGreen;

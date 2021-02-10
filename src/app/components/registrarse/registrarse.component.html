@@ -1,9 +1,0 @@
-<form [formGroup]="form" (submit)="onSubmit(form.value)">
-    <label for="user">User</label>
-    <input type="text" name="user" formControlName="user">
-    </br>
-    <label for="password">Password</label>
-    <input type="text" name="password" formControlName="password">
-    <br>
-    <input type="submit" value="Registrarse" [disable]="form.invalid">
-</form>

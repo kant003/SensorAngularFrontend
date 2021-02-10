@@ -1,1 +1,18 @@
-<p>datos-edit works!</p>
+<h1> Añadir nuevo dato </h1>
+{{id}}
+<form [formGroup]="form" (submit)="onSubmit(form.value)">
+  <label for="co2">Nivel de Co2</label>
+  <input type="text" name="co2" formControlName="co2">
+  <br/>
+  <label for="temperatura">Temperatura</label>
+  <input type="text" name="temperatura" formControlName="temperatura">
+  <br/>
+  <label for="humedad">Humedad</label>
+  <input type="text" name="humedad" formControlName="humedad">
+  <br/>
+  <label for="idsensor">id Sensor</label>
+  <input type="text" name="idsensor" formControlName="idsensor">
+  <br/>
+
+  <input type="submit" [value]="id?'Actualizar':'Crear'" [disabled]="form.invalid">
+</form>

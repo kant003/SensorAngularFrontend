@@ -1,1 +1,11 @@
-<p>datos-list works!</p>
+<h1>Lista de datos</h1>
+<div *ngFor="let dato of listaDatos">
+  {{dato._id}} &nbsp;&nbsp;
+  {{dato.co2}} &nbsp;&nbsp;
+  {{dato.temperatura}} &nbsp;&nbsp;
+  {{dato.humedad}} &nbsp;&nbsp;
+  {{dato.fecha | date:'dd/MM/YYYY hh:mm'}}
+
+  <a [routerLink]="['/datos-edit', dato._id]"> Editar </a>
+  <a [routerLink]="" (click)="borrarDato(dato._id)"> Borrar </a>
+</div>
