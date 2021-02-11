@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: 'datos-actuales', component: DatosActualesComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registrarse', component: RegistrarseComponent},
-  {path: 'datos-edit/:id', component: DatosEditComponent},
+  {path: 'datos-edit', component: DatosEditComponent},  //insercion
+  {path: 'datos-edit/:id', component: DatosEditComponent}, //actualizacion
 
 ];
 

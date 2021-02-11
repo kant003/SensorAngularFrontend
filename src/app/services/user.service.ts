@@ -11,16 +11,9 @@ export class UserService {
 
   login(email:string, password:string): Observable<any>{
     const body = JSON.stringify({email, password})
-    const headers = 'Content-Type'
-
-    const options ={
-      headers: headers,
-      observe: 'response' as 'body',
-      responseType: 'json'
-      //'Content-Type': 'application/json'}
-    }
+    const headers = new HttpHeaders( {'Content-Type': 'application/json'})
 
     const url = `http://localhost:3000/api/login`
-    return this.httpClient.post(url, body, options)
+    return this.httpClient.post(url, body, {headers})
   }
 }

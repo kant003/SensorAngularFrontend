@@ -12,4 +12,14 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  getLogued(): string{
+    const local = localStorage.getItem('current-user')
+    const email = JSON.parse(local!).email
+    return email
+  }
+
+  logout(){
+    localStorage.removeItem('current-user')
+  }
 }

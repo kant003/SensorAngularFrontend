@@ -5,5 +5,7 @@
       <a class="component3 box" [routerLink]="['datos-edit']"><div>Añadir dato</div></a>
       <a class="component4 box" [routerLink]="['login']"><div>Login</div></a>
       <a class="component5 box" [routerLink]="['registrarse']"><div>Registrarse</div></a>
+      {{getLogued()}}
+      <a href="#" (click)="logout()">Logout</a>
     </div>
   </div>

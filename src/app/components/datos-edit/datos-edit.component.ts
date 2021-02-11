@@ -11,7 +11,7 @@ import { DatosSensorService } from 'src/app/services/datos-sensor.service';
 })
 export class DatosEditComponent implements OnInit {
 
-  public id = undefined
+  public id!:string
   public form: FormGroup
   constructor(private formBuilder: FormBuilder,
               private datosSensorService: DatosSensorService,
@@ -22,21 +22,40 @@ export class DatosEditComponent implements OnInit {
       co2: ['', Validators.required],
       temperatura: ['', Validators.required],
       humedad: ['', Validators.required],
-      idsensor: ['', Validators.required],
+      idSensor: ['', Validators.required],
      })
   }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params.id
+
+    if(this.id){
+      this.datosSensorService.getDatoById(this.id).subscribe(
+        result => this.form.patchValue(result),
+        error => alert('Error al cargar los datos')
+      )
+    }
   }
 
   onSubmit(formValue: Dato){
-    this.datosSensorService.addDato(formValue).subscribe(
-      result => {
-        console.log('guardado correctamente'+formValue)
-        this.router.navigate(['/datos-list'])
-      },
+    if(this.id){
+      this.actualizarDatoExistente(this.id, formValue)
+    }else{
+      this.addNuevoDato(formValue)
+    }
+  }
+
+  addNuevoDato(dato: Dato){
+    this.datosSensorService.addDato(dato).subscribe(
+      result => this.router.navigate(['/datos-list']),
       error => alert('Error al guardar el dato:'+error.text)
+    )
+  }
+
+  actualizarDatoExistente(id: string, dato: Dato){
+    this.datosSensorService.updateDato(id, dato).subscribe(
+      result => this.router.navigate(['/datos-list']),
+      error => alert('Error al modificar el dato:'+error.text)
     )
   }
 
