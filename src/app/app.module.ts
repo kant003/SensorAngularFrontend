@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MatCardModule} from '@angular/material/card';
     DatosActualesComponent,
     LoginComponent,
     DatosEditComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,

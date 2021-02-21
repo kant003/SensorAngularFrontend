@@ -13,13 +13,18 @@ export class MenuComponent implements OnInit {
   }
 
 
-  getLogued(): string{
-    const local = localStorage.getItem('current-user')
-    const email = JSON.parse(local!).email
-    return email
+  getEmailLogued(): string {
+    const local = localStorage.getItem('current-user');
+    const email = JSON.parse(local!).email;
+    return email;
+  }
+  isLogued(): boolean {
+    const local = localStorage.getItem('current-user');
+    return local !== null;
   }
 
-  logout(){
-    localStorage.removeItem('current-user')
+  logout() {
+    localStorage.removeItem('current-user');
+    localStorage.removeItem('auth-token');
   }
 }

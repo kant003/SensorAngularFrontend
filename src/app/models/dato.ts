@@ -7,6 +7,5 @@ export class Dato{
   public humedad: number,
   public fecha: Date,
   public idSensor: number
-
   ) {}
 }

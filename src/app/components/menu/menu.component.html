@@ -1,11 +1,20 @@
-<div class="contenedorPadre">
-    <div class="contenedorHijo">
-      <a class="component1 box" [routerLink]="['datos-list']"><div>Datos Listado</div></a>
-      <a class="component2 box" [routerLink]="['datos-actuales']"><div>Datos actuales</div></a>
-      <a class="component3 box" [routerLink]="['datos-edit']"><div>Añadir dato</div></a>
-      <a class="component4 box" [routerLink]="['login']"><div>Login</div></a>
-      <a class="component5 box" [routerLink]="['registrarse']"><div>Registrarse</div></a>
-      {{getLogued()}}
-      <a href="#" (click)="logout()">Logout</a>
+    <div class="menu">
+      <a [routerLink]="['datos-list']">
+        <div>Listado de datos</div>
+      </a>
+      <a [routerLink]="['datos-actuales']">
+        <div>Datos más actual</div>
+      </a>
+
+      <a [routerLink]="['registro']">
+        <div>Registrar usuario</div>
+      </a>
+
+
+      <a [routerLink]="['']" *ngIf="isLogued()" (click)="logout()">Logout</a>
+
+      <a [routerLink]="['login']" *ngIf=" ! isLogued()" [routerLink]="['login']">Login</a>
+
+      <span *ngIf="isLogued()">  Accediendo: {{getEmailLogued()}} </span>
+
     </div>
-  </div>

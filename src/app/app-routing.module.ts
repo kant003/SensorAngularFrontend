@@ -4,13 +4,13 @@ import { DatosActualesComponent } from './components/datos-actuales/datos-actual
 import { DatosListComponent } from './components/datos-list/datos-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { DatosEditComponent } from './components/datos-edit/datos-edit.component';
-import { RegistrarseComponent } from './components/registrarse/registrarse.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 const routes: Routes = [
   {path: 'datos-list', component: DatosListComponent},
   {path: 'datos-actuales', component: DatosActualesComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'registrarse', component: RegistrarseComponent},
+  {path: 'registro', component: RegistroComponent},
   {path: 'datos-edit', component: DatosEditComponent},  //insercion
   {path: 'datos-edit/:id', component: DatosEditComponent}, //actualizacion
 

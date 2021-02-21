@@ -7,43 +7,44 @@ import { Dato } from '../models/dato';
 })
 export class DatosSensorService {
 
+  // urlBase = 'http://localhost:3000/api';
+  urlBase = 'https://proyectosensorcebem.herokuapp.com/api';
   constructor(private httpClient: HttpClient) { }
 
-  getListaDatos(): Observable<any>{
-    const url = `http://localhost:3000/api/datos`
-    return this.httpClient.get(url)
+  getListaDatos(): Observable<any> {
+    const url = this.urlBase + '/dato';
+    return this.httpClient.get(url);
   }
 
-  getDatoById(id: string): Observable<any>{
-      const url = 'http://localhost:3000/api/dato/'+id
-      return this.httpClient.get(url)
+  getDatoById(id: string): Observable<any> {
+    const url = this.urlBase + '/dato/' + id;
+    return this.httpClient.get(url);
   }
 
-  getUltimoDato(): Observable<any>{
-    const local = localStorage.getItem('current-user')
-    const token = JSON.parse(local!).token
-    const url = `http://localhost:3000/api/ultimoDato`
-    const headers = {'auth-token':token}
-    return this.httpClient.get(url, {headers})
+  getUltimoDato(): Observable<any> {
+    const token = localStorage.getItem('auth-token') || '';
+    const url = this.urlBase + '/dato/ultimoDato';
+    const headers = { 'auth-token': token };
+    return this.httpClient.get(url, { headers });
   }
 
-  removeDato(id: string){
-    const url = `http://localhost:3000/api/dato/`+id
-    return this.httpClient.delete(url)
+  removeDato(id: string): Observable<any>{
+    const url = this.urlBase + '/dato/' + id;
+    return this.httpClient.delete(url);
   }
 
-  addDato(dato: Dato){
-    const body = JSON.stringify(dato)
-    const headers = new HttpHeaders( {'Content-Type': 'application/json'})
-    const url = `http://localhost:3000/api/dato/`
-    return this.httpClient.post(url, body, {headers})
+  addDato(dato: Dato): Observable<any> {
+    const body = JSON.stringify(dato);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const url = this.urlBase + '/dato/';
+    return this.httpClient.post(url, body, { headers });
   }
 
-  updateDato(id: string, dato: Dato){
-    const body = JSON.stringify(dato)
-    const headers = new HttpHeaders( {'Content-Type': 'application/json'})
-    const url = `http://localhost:3000/api/dato/`+id
-    return this.httpClient.put(url, body, {headers})
+  updateDato(id: string, dato: Dato): Observable<any> {
+    const body = JSON.stringify(dato);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const url = this.urlBase + '/dato/' + id;
+    return this.httpClient.put(url, body, { headers });
   }
 
 }
