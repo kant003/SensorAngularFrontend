@@ -12,18 +12,20 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   getEmailLogued(): string {
     const local = localStorage.getItem('current-user');
-    const email = JSON.parse(local!).email;
-    return email;
+    if (local === null) {
+      return '';
+    }
+    return JSON.parse(local).email;
   }
+
   isLogued(): boolean {
     const local = localStorage.getItem('current-user');
     return local !== null;
   }
 
-  logout() {
+  logout(): void {
     localStorage.removeItem('current-user');
     localStorage.removeItem('auth-token');
   }

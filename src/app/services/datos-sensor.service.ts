@@ -11,14 +11,14 @@ export class DatosSensorService {
   urlBase = 'https://proyectosensorcebem.herokuapp.com/api';
   constructor(private httpClient: HttpClient) { }
 
-  getListaDatos(): Observable<any> {
+  getListaDatos(): Observable<Dato[]> {
     const url = this.urlBase + '/dato';
-    return this.httpClient.get(url);
+    return this.httpClient.get<Dato[]>(url);
   }
 
-  getDatoById(id: string): Observable<any> {
+  getDatoById(id: string): Observable<Dato> {
     const url = this.urlBase + '/dato/' + id;
-    return this.httpClient.get(url);
+    return this.httpClient.get<Dato>(url);
   }
 
   getUltimoDato(): Observable<any> {
